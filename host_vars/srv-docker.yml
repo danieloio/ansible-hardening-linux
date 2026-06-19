@@ -1,0 +1,5 @@
+---
+firewall_host_allowed_ports:
+  - { port: 9443, proto: tcp, comment: "Portainer HTTPS" }
+  - { port: 8090, proto: tcp, comment: "Nginx" }
+  - { port: 8092, proto: tcp, comment: "phpMyAdmin" }

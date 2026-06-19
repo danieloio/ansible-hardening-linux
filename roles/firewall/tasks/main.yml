@@ -1,0 +1,35 @@
+---
+- name: Instalar ufw
+  apt:
+    name: ufw
+    state: present
+
+- name: Establecer politica por defecto - denegar entrante
+  ufw:
+    direction: incoming
+    policy: deny
+
+- name: Establecer politica por defecto - permitir saliente
+  ufw:
+    direction: outgoing
+    policy: allow
+
+- name: Permitir puertos comunes a todos los hosts
+  ufw:
+    rule: allow
+    port: "{{ item.port }}"
+    proto: "{{ item.proto }}"
+    comment: "{{ item.comment }}"
+  loop: "{{ firewall_common_allowed_ports }}"
+
+- name: Permitir puertos especificos del host
+  ufw:
+    rule: allow
+    port: "{{ item.port }}"
+    proto: "{{ item.proto }}"
+    comment: "{{ item.comment }}"
+  loop: "{{ firewall_host_allowed_ports | default([]) }}"
+
+- name: Habilitar ufw
+  ufw:
+    state: enabled

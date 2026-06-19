@@ -1,0 +1,4 @@
+---
+users_ansible_adm_name: "ansible_adm"
+users_ansible_adm_shell: "/bin/bash"
+users_ansible_adm_pubkey_file: "ansible_adm_id_ed25519.pub"

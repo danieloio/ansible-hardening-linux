@@ -1,0 +1,5 @@
+---
+firewall_host_allowed_ports:
+  - { port: 10051, proto: tcp, comment: "Zabbix server - trapper" }
+  - { port: 10050, proto: tcp, comment: "Zabbix agent" }
+  - { port: 80, proto: tcp, comment: "Apache - frontend web Zabbix" }

@@ -1,0 +1,32 @@
+---
+- name: Crear usuario dedicado para Ansible
+  user:
+    name: "{{ users_ansible_adm_name }}"
+    shell: "{{ users_ansible_adm_shell }}"
+    create_home: true
+    state: present
+
+- name: Crear directorio .ssh para el usuario ansible_adm
+  file:
+    path: "/home/{{ users_ansible_adm_name }}/.ssh"
+    state: directory
+    owner: "{{ users_ansible_adm_name }}"
+    group: "{{ users_ansible_adm_name }}"
+    mode: "0700"
+
+- name: Desplegar clave publica de ansible_adm
+  copy:
+    src: "{{ users_ansible_adm_pubkey_file }}"
+    dest: "/home/{{ users_ansible_adm_name }}/.ssh/authorized_keys"
+    owner: "{{ users_ansible_adm_name }}"
+    group: "{{ users_ansible_adm_name }}"
+    mode: "0600"
+
+- name: Dar permisos sudo NOPASSWD a ansible_adm
+  copy:
+    dest: "/etc/sudoers.d/ansible_adm"
+    content: "{{ users_ansible_adm_name }} ALL=(ALL) NOPASSWD:ALL\n"
+    owner: root
+    group: root
+    mode: "0440"
+    validate: "visudo -cf %s"

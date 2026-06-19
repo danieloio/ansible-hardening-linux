@@ -1,0 +1,8 @@
+---
+common_timezone: "Europe/Madrid"
+common_packages:
+  - curl
+  - vim
+  - htop
+  - net-tools
+  - unzip

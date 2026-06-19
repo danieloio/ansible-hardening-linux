@@ -1,0 +1,4 @@
+---
+ssh_hardening_port: 44331
+ssh_hardening_permit_root_login: "no"
+ssh_hardening_password_authentication: "no"

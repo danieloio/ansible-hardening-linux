@@ -1,0 +1,11 @@
+---
+- name: Hardening de servidores Linux
+  hosts: linux_servers
+  become: true
+
+  roles:
+    - common
+    - users
+    - ssh_hardening
+    - firewall
+    - fail2ban

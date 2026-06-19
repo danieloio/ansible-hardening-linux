@@ -1,0 +1,32 @@
+---
+- name: Asegurar que no exista una directiva Port duplicada en sshd_config principal
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: '^#?Port\s+22$'
+    line: "# Port gestionado por Ansible en /etc/ssh/sshd_config.d/99-hardening.conf"
+    state: present
+    validate: "sshd -t -f %s"
+  notify: reiniciar ssh
+
+- name: Desplegar configuracion de hardening SSH
+  template:
+    src: 99-hardening.conf.j2
+    dest: /etc/ssh/sshd_config.d/99-hardening.conf
+    owner: root
+    group: root
+    mode: "0644"
+    validate: "sshd -t -f %s"
+  notify: reiniciar ssh
+
+- name: Deshabilitar ssh.socket si esta activo (systemd socket activation)
+  systemd:
+    name: ssh.socket
+    enabled: false
+    state: stopped
+  ignore_errors: true
+
+- name: Asegurar que ssh.service esta habilitado y activo
+  systemd:
+    name: ssh.service
+    enabled: true
+    state: started

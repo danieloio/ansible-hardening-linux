@@ -1,0 +1,19 @@
+---
+- name: Actualizar cache de apt
+  apt:
+    update_cache: true
+    cache_valid_time: 3600
+
+- name: Actualizar todos los paquetes del sistema
+  apt:
+    upgrade: dist
+
+- name: Instalar paquetes base
+  apt:
+    name: "{{ common_packages }}"
+    state: present
+
+- name: Configurar zona horaria
+  timezone:
+    name: "{{ common_timezone }}"
+
