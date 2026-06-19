@@ -157,4 +157,4 @@ Adapta `inventory/hosts.ini`, `group_vars/all.yml` y `host_vars/*.yml` a tu prop
 
 ## Autor
 
-**Daniel Moisés Loyo Vásquez*
+Laboratorio realizado con Ansible Hardening Linux sobre Ubuntu Server 22.04 LTS — Daniel Moisés Loyo Vásquez
