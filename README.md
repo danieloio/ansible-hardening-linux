@@ -3,7 +3,7 @@
 [![Licencia MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Ansible](https://img.shields.io/badge/Ansible-core%202.16-blue.svg)](https://www.ansible.com/)
 
-> Proyecto 7 de mi portfolio ASIR. Automatización con Ansible del hardening de seguridad de dos servidores Linux ya existentes (Zabbix Server y un host con Docker), gestionando usuarios, SSH, firewall y fail2ban.
+Automatización con Ansible del hardening de seguridad de dos servidores Linux ya existentes (Zabbix Server y un host con Docker), gestionando usuarios, SSH, firewall y fail2ban.
 
 **English version:** [README_EN.md](README_EN.md)
 
