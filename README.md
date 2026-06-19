@@ -157,4 +157,4 @@ Adapta `inventory/hosts.ini`, `group_vars/all.yml` y `host_vars/*.yml` a tu prop
 
 ## Autor
 
-**Daniel Moisés Loyo Vásquez** — Técnico ASIR · [GitHub](https://github.com/danieloio)
+**Daniel Moisés Loyo Vásquez*
